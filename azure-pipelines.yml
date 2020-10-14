@@ -10,14 +10,17 @@ pool:
   vmImage: 'ubuntu-latest'
 
 environment: environment-1-b0228092-7e21-42a0-b9c6-ddfb4e3f86ef
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+strategy: 
+ runOnce:
+   deploy:
+     steps:
+     - task: Maven@3
+       inputs:
+         mavenPomFile: 'pom.xml'
+         mavenOptions: '-Xmx3072m'
+         javaHomeOption: 'JDKVersion'
+         jdkVersionOption: '1.8'
+         jdkArchitectureOption: 'x64'
+         publishJUnitResults: true
+         testResultsFiles: '**/surefire-reports/TEST-*.xml'
+         goals: 'package'
