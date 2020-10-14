@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-environment: environment-1-b0228092-7e21-42a0-b9c6-ddfb4e3f86ef
+environment: 'environment-1-b0228092-7e21-42a0-b9c6-ddfb4e3f86ef'
 strategy: 
  runOnce:
    deploy:
