@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: 'N-5CG50516FC'
+pool: 'Default'
 
 steps:
 - script: echo Hello, world!
